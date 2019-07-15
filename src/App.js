@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await fetch('http://localhost:8082/api/books')
+    const response = await fetch(`/api/books`)
     const json = await response.json()
     this.setState({books: json})
 
@@ -27,7 +27,7 @@ this.setState({
 })
 }
 deleteFromCart=(id)=>{console.log(id)
-var url = 'http://localhost:8082/api/books/cart/remove/'+id.toString();
+var url = `/api/books/cart/remove/${id}`;
 console.log(url)
 
 fetch(url, {
@@ -50,7 +50,7 @@ this.forceUpdate();
 }
  addToCart=(id)=>{
   console.log(id)
-  var url = 'http://localhost:8082/api/books/cart/add/'+id.toString();
+  var url = `/api/books/cart/add/${id}`;
 console.log(url)
 
  fetch(url, {
