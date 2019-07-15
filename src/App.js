@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await fetch(`/api/books`)
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/books`)
     const json = await response.json()
     this.setState({books: json})
 
@@ -27,7 +27,7 @@ this.setState({
 })
 }
 deleteFromCart=(id)=>{console.log(id)
-var url = `/api/books/cart/remove/${id}`;
+var url = `${process.env.REACT_APP_API_URL}/api/books/cart/remove/${id}`;
 console.log(url)
 
 fetch(url, {
@@ -50,7 +50,7 @@ this.forceUpdate();
 }
  addToCart=(id)=>{
   console.log(id)
-  var url = `/api/books/cart/add/${id}`;
+  var url = `${process.env.REACT_APP_API_URL}/api/books/cart/add/${id}`;
 console.log(url)
 
  fetch(url, {
